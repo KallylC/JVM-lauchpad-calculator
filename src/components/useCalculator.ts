@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
-// Função fora do Hook para o React Compiler ignorar
-function executeEval(expression: string): any {
-  // eslint-disable-next-line no-eval
+function executeEval(expression: string): unknown {
   return eval(expression);
 }
 
@@ -24,7 +22,7 @@ export const useCalculator = () => {
       const result = executeEval(display);
 
       setDisplay(String(result));
-    } catch (error) {
+    } catch {
       setDisplay("Erro");
       setTimeout(() => setDisplay(""), 1500);
     }

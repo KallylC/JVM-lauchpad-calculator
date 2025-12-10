@@ -1,20 +1,16 @@
-// Calculator.tsx
 import React from 'react';
 import './Calculator.css';
 import { useCalculator } from './useCalculator';
 
 const Calculator: React.FC = () => {
-  // Importamos a lógica do nosso hook personalizado
   const { display, handleClick, handleClear, handleCalculate } = useCalculator();
 
   return (
     <div className="calculator-container">
-      {/* Área do Visor */}
       <div className="display">
         {display || "0"}
       </div>
 
-      {/* Grid de Botões */}
       <div className="buttons-grid">
         <button className="btn clear" onClick={handleClear}>AC</button>
         <button className="btn" onClick={() => handleClick('.')}>.</button>
